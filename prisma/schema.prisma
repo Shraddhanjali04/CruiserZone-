@@ -1,0 +1,141 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id             String         @id @default(cuid())
+  name           String
+  email          String         @unique
+  phone          String         @unique
+  passwordHash   String
+  role           String         @default("BUYER") // ADMIN | BUYER | SELLER
+  kycStatus      String         @default("PENDING") // PENDING | SUBMITTED | APPROVED | REJECTED
+  kycType        String? // PASSPORT | AADHAAR | PAN | DRIVING_LICENSE
+  kycNumber      String?
+  kycSubmittedAt DateTime?
+  city           String?
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+  bids           Bid[]
+  transactions   Transaction[]
+  notifications  Notification[]
+  watchlists     Watchlist[]
+  wonAuctions    Auction[]      @relation("AuctionWinner")
+}
+
+model Car {
+  id                 String      @id @default(cuid())
+title               String       @unique
+  slug                String       @unique
+  make               String
+  model              String
+  variant            String?
+  year               Int
+  fuel               String      @default("PETROL") // PETROL | DIESEL | HYBRID | ELECTRIC | CNG | LPG
+  transmission       String      @default("MANUAL") // MANUAL | AUTOMATIC | IMT | AMT | CVT | DCT
+  bodyType           String      @default("HATCHBACK") // HATCHBACK | SEDAN | SUV | MUV | COUPE | CONVERTIBLE | PICKUP | WAGON | VAN
+  kmDriven           Int
+  ownership          Int         @default(1)
+  colour             String
+  rto                String?
+  registrationNumber String?
+  vin                String?
+  insuranceValidTill DateTime?
+  lastServiceKm      Int?
+  engineCc           Int?
+  seats              Int         @default(5)
+  city               String?
+  description        String?
+  inspectionScore    Int         @default(0)
+  certified          Boolean     @default(true)
+  featured           Boolean     @default(false)
+  source             String      @default("CRUISERZONE") // CRUISERZONE | CONSIGNED
+  status             String      @default("DRAFT") // DRAFT | LIVE | SOLD | UNSOLD
+  images             String      @default("[]") // JSON array of image urls
+  conditionKeys      String      @default("[]") // JSON array of passed inspection checkpoints
+  createdAt          DateTime    @default(now())
+  updatedAt          DateTime    @updatedAt
+  auctions           Auction[]
+  watchlists         Watchlist[]
+}
+
+model Auction {
+  id           String    @id @default(cuid())
+  carId        String
+  car          Car       @relation(fields: [carId], references: [id], onDelete: Cascade)
+  startBid     Int
+  reservePrice Int       @default(0) // 0 = no reserve
+  increment    Int       @default(5000)
+  currentPrice Int       @default(0)
+  startsAt     DateTime
+  endsAt       DateTime
+  status       String    @default("SCHEDULED") // SCHEDULED | LIVE | ENDED | CANCELLED
+  published    Boolean   @default(false) // show in public results
+  createdBy    String?
+  createdAt    DateTime  @default(now())
+  endedAt      DateTime?
+  winnerId     String?
+  winner       User?     @relation("AuctionWinner", fields: [winnerId], references: [id])
+  winningBidId String?   @unique
+  winningBid   Bid?      @relation("WinningBid", fields: [winningBidId], references: [id])
+  soldPrice    Int?
+  bids         Bid[]
+}
+
+model Bid {
+  id             String   @id @default(cuid())
+  auctionId      String
+  auction        Auction  @relation(fields: [auctionId], references: [id], onDelete: Cascade)
+  userId         String
+  user           User     @relation(fields: [userId], references: [id])
+  amount         Int
+  isAuto         Boolean  @default(false)
+  maxCeiling     Int? // for auto-bid: hidden max
+  winningAuction Auction? @relation("WinningBid")
+  createdAt      DateTime @default(now())
+
+  @@index([auctionId, amount])
+  @@index([userId])
+}
+
+model Watchlist {
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  carId     String
+  car       Car      @relation(fields: [carId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@id([userId, carId])
+}
+
+model Transaction {
+  id         String    @id @default(cuid())
+  userId     String
+  user       User      @relation(fields: [userId], references: [id])
+  type       String    @default("DEPOSIT") // DEPOSIT | REFUND | WINNING_PAYMENT
+  amount     Int
+  currency   String    @default("INR")
+  status     String    @default("PENDING") // PENDING | SUCCESS | FAILED | REFUNDED
+  gateway    String? // RAZORPAY | MANUAL
+  gatewayRef String?
+  note       String?
+  createdAt  DateTime  @default(now())
+  paidAt     DateTime?
+}
+
+model Notification {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  type      String   @default("SYSTEM") // OUTBID | AUCTION_ENDING | AUCTION_WON | AUCTION_LOST | PAYMENT | KYC | SYSTEM
+  title     String
+  message   String
+  link      String?
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+}

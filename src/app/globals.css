@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-inter);
+}
+
+@theme {
+  --color-brand-50: #feeceb;
+  --color-brand-100: #fdd3d1;
+  --color-brand-200: #fba6a3;
+  --color-brand-300: #f87670;
+  --color-brand-400: #f04a42;
+  --color-brand-500: #d92d20;
+  --color-brand-600: #b42318;
+  --color-brand-700: #912018;
+  --color-brand-800: #712018;
+  --color-brand-900: #551d15;
+  --color-brand-950: #320a06;
+
+  --color-ink-50: #f7f7f8;
+  --color-ink-100: #ececf0;
+  --color-ink-200: #d9d9e0;
+  --color-ink-300: #b9b9c5;
+  --color-ink-400: #9494a3;
+  --color-ink-500: #767584;
+  --color-ink-600: #5f5e6c;
+  --color-ink-700: #4e4d58;
+  --color-ink-800: #36353e;
+  --color-ink-900: #1f1e26;
+  --color-ink-950: #141318;
+}
+
+@layer base {
+  body {
+    @apply bg-ink-50 text-ink-900 antialiased;
+  }
+  ::selection {
+    @apply bg-brand-500/20;
+  }
+}
+
+@layer utilities {
+  .container-site {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+  .card {
+    @apply rounded-xl border border-ink-200 bg-white shadow-sm;
+  }
+  .card-hover {
+    @apply transition hover:border-ink-300 hover:shadow-md;
+  }
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}

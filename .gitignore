@@ -17,10 +17,6 @@
 /.next/
 /out/
 
-# prisma sqlite database
-prisma/*.db
-prisma/*.db-journal
-
 # production
 /build
 

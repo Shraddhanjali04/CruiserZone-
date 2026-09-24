@@ -1,7 +1,9 @@
 import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcryptjs";
 
-const prisma = new PrismaClient();
+const prisma = new PrismaClient({
+  datasourceUrl: process.env.DATABASE_URL || "file:./dev.db",
+});
 
 const CAR_META = [
   { img: "cz-001", make: "Hyundai", model: "Creta", variant: "1.5 SX IVT", year: 2021, fuel: "PETROL", trans: "CVT", body: "SUV", km: 27850, own: 1, colour: "White", city: "Mumbai", base: 985000, featured: true },

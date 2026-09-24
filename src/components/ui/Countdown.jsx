@@ -33,19 +33,33 @@ export function Countdown({ endsAt, onEnd, size = "md", compact = false, classNa
     const target = useMemo(() => new Date(typeof endsAt === "string" || typeof endsAt === "number"
         ? endsAt
         : endsAt.getTime()).getTime(), [endsAt]);
-    const [remaining, setRemaining] = useState(() => diff(target));
-    const done = remaining <= 0;
+
+    // Start with null so server and client render the same initial HTML (no hydration mismatch)
+    const [remaining, setRemaining] = useState(null);
+
     useEffect(() => {
+        // Set the real value only on the client after mount
+        setRemaining(diff(target));
         const id = setInterval(() => {
             setRemaining(diff(target));
         }, 1000);
         return () => clearInterval(id);
     }, [target]);
+
     useEffect(() => {
-        if (done && remaining <= 0)
+        if (remaining !== null && remaining <= 0)
             onEnd?.();
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [done]);
+    }, [remaining]);
+
+    // Server-side / before mount: render a neutral placeholder
+    if (remaining === null) {
+        return (<span className={cn("tabular inline-flex items-baseline gap-0.5 font-semibold text-ink-400", className)}>
+            --:--:--
+        </span>);
+    }
+
+    const done = remaining <= 0;
     if (done) {
         return (<span className={cn("inline-flex items-center gap-1.5 font-semibold text-red-600", className)}>
         <span className="h-2 w-2 rounded-full bg-red-500"/>

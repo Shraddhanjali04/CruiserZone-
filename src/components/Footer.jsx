@@ -43,10 +43,10 @@ export function Footer() {
             Contact
           </h4>
           <ul className="mt-4 space-y-2.5 text-sm text-ink-400">
-            <li>info@cruiserzone.in</li>
-            <li>+91 98 0000 0000</li>
+            <li>cruiserzone@gmail.com</li>
+            <li>+91 99928 89394</li>
             <li>Mon–Sat, 10am–7pm IST</li>
-            <li className="pt-2">Head office: Mumbai, India</li>
+            <li className="pt-2">House No. 1066, Sector 14, Sonipat, Haryana, 131001, India</li>
           </ul>
         </div>
       </div>

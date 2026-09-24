@@ -12,10 +12,9 @@ const LINKS = [
     { href: "/about", label: "About us" },
 ];
 export function Logo() {
-    return (<Link href="/" className="flex items-center gap-2.5">
-      <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand-500 font-black text-white">
-        CZ
-      </span>
+    return (<Link href="/" className="flex items-center gap-2">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src="/logo.jpg" alt="CruiserZone" className="h-9 w-9 rounded-lg object-cover"/>
       <span className="text-lg font-bold tracking-tight text-ink-900">
         CruiserZone
         <span className="text-brand-500">.</span>

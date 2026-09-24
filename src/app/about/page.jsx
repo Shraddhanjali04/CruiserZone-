@@ -36,7 +36,7 @@ export default function AboutPage() {
           </div>
           <div className="grid grid-cols-2 gap-4">
             {[
-            ["2019", "Founded in Mumbai"],
+            ["2025", "Founded in Haryana"],
             ["4,000+", "Cars auctioned"],
             ["9", "Cities served"],
             ["₹4 Cr+", "Sold to date"],

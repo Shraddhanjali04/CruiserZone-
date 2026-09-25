@@ -8,30 +8,30 @@ const prisma = new PrismaClient({
 // Real Unsplash car photos mapped to car types
 const CAR_META = [
   // --- LIVE auctions (index 0-14) ---
-  { img: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=800&h=500&fit=crop&q=80", make: "Hyundai", model: "Creta", variant: "1.5 SX IVT", year: 2021, fuel: "PETROL", trans: "CVT", body: "SUV", km: 27850, own: 1, colour: "White", city: "Mumbai", base: 985000, featured: true },
-  { img: "https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?w=800&h=500&fit=crop&q=80", make: "Maruti Suzuki", model: "Swift", variant: "ZXi AMT", year: 2022, fuel: "PETROL", trans: "AMT", body: "HATCHBACK", km: 18400, own: 1, colour: "Yellow", city: "Delhi NCR", base: 525000, featured: false },
-  { img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&h=500&fit=crop&q=80", make: "Toyota", model: "Fortuner", variant: "Legender 4x4 AT", year: 2020, fuel: "DIESEL", trans: "AUTOMATIC", body: "SUV", km: 45200, own: 1, colour: "White", city: "Bengaluru", base: 2670000, featured: true },
-  { img: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800&h=500&fit=crop&q=80", make: "Honda", model: "City", variant: "ZX CVT", year: 2021, fuel: "PETROL", trans: "CVT", body: "SEDAN", km: 31200, own: 2, colour: "Meteoroid Grey", city: "Pune", base: 780000, featured: false },
-  { img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=500&fit=crop&q=80", make: "Mahindra", model: "Thar", variant: "LX Hard Top 4x4", year: 2022, fuel: "DIESEL", trans: "MANUAL", body: "SUV", km: 15600, own: 1, colour: "Deep Forest", city: "Jaipur", base: 1120000, featured: true },
-  { img: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=800&h=500&fit=crop&q=80", make: "Kia", model: "Seltos", variant: "HTX 1.5 DCT", year: 2021, fuel: "PETROL", trans: "DCT", body: "SUV", km: 39800, own: 1, colour: "Intense Red", city: "Hyderabad", base: 890000, featured: false },
-  { img: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=800&h=500&fit=crop&q=80", make: "Tata", model: "Nexon", variant: "XZ+ S Dark", year: 2023, fuel: "PETROL", trans: "AMT", body: "SUV", km: 9800, own: 1, colour: "Black", city: "Chandigarh", base: 820000, featured: false },
-  { img: "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=800&h=500&fit=crop&q=80", make: "Skoda", model: "Slavia", variant: "Style 1.5 TSI", year: 2022, fuel: "PETROL", trans: "MANUAL", body: "SEDAN", km: 22100, own: 1, colour: "Carbon Steel", city: "Mumbai", base: 940000, featured: false },
-  { img: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=800&h=500&fit=crop&q=80", make: "Volkswagen", model: "Taigun", variant: "GT Line 1.5 TSI", year: 2022, fuel: "PETROL", trans: "DCT", body: "SUV", km: 26200, own: 1, colour: "Wild Cherry Red", city: "Bengaluru", base: 960000, featured: false },
+  { img: "https://images.unsplash.com/photo-1625231334168-24f10c91a9eb?w=800&h=500&fit=crop&q=80", make: "Hyundai", model: "Creta", variant: "1.5 SX IVT", year: 2021, fuel: "PETROL", trans: "CVT", body: "SUV", km: 27850, own: 1, colour: "White", city: "Mumbai", base: 985000, featured: true },
+  { img: "https://images.unsplash.com/photo-1619767886558-efdc259cde1a?w=800&h=500&fit=crop&q=80", make: "Maruti Suzuki", model: "Swift", variant: "ZXi AMT", year: 2022, fuel: "PETROL", trans: "AMT", body: "HATCHBACK", km: 18400, own: 1, colour: "Yellow", city: "Delhi NCR", base: 525000, featured: false },
+  { img: "https://images.unsplash.com/photo-1621993202323-eb4a2c615e59?w=800&h=500&fit=crop&q=80", make: "Toyota", model: "Fortuner", variant: "Legender 4x4 AT", year: 2020, fuel: "DIESEL", trans: "AUTOMATIC", body: "SUV", km: 45200, own: 1, colour: "White", city: "Bengaluru", base: 2670000, featured: true },
+  { img: "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c6?w=800&h=500&fit=crop&q=80", make: "Honda", model: "City", variant: "ZX CVT", year: 2021, fuel: "PETROL", trans: "CVT", body: "SEDAN", km: 31200, own: 2, colour: "Meteoroid Grey", city: "Pune", base: 780000, featured: false },
+  { img: "https://images.unsplash.com/photo-1519245659620-e859806a8d7b?w=800&h=500&fit=crop&q=80", make: "Mahindra", model: "Thar", variant: "LX Hard Top 4x4", year: 2022, fuel: "DIESEL", trans: "MANUAL", body: "SUV", km: 15600, own: 1, colour: "Deep Forest", city: "Jaipur", base: 1120000, featured: true },
+  { img: "https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=800&h=500&fit=crop&q=80", make: "Kia", model: "Seltos", variant: "HTX 1.5 DCT", year: 2021, fuel: "PETROL", trans: "DCT", body: "SUV", km: 39800, own: 1, colour: "Intense Red", city: "Hyderabad", base: 890000, featured: false },
+  { img: "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=800&h=500&fit=crop&q=80", make: "Tata", model: "Nexon", variant: "XZ+ S Dark", year: 2023, fuel: "PETROL", trans: "AMT", body: "SUV", km: 9800, own: 1, colour: "Black", city: "Chandigarh", base: 820000, featured: false },
+  { img: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=800&h=500&fit=crop&q=80", make: "Skoda", model: "Slavia", variant: "Style 1.5 TSI", year: 2022, fuel: "PETROL", trans: "MANUAL", body: "SEDAN", km: 22100, own: 1, colour: "Carbon Steel", city: "Mumbai", base: 940000, featured: false },
+  { img: "https://images.unsplash.com/photo-1549317661-bd32c8ce0abe?w=800&h=500&fit=crop&q=80", make: "Volkswagen", model: "Taigun", variant: "GT Line 1.5 TSI", year: 2022, fuel: "PETROL", trans: "DCT", body: "SUV", km: 26200, own: 1, colour: "Wild Cherry Red", city: "Bengaluru", base: 960000, featured: false },
   { img: "https://images.unsplash.com/photo-1502877338535-766e1452684a?w=800&h=500&fit=crop&q=80", make: "MG", model: "Hector", variant: "Sharp Pro CVT", year: 2021, fuel: "PETROL", trans: "CVT", body: "SUV", km: 33400, own: 1, colour: "Sterling Grey", city: "Delhi NCR", base: 1020000, featured: false },
-  { img: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=800&h=500&fit=crop&q=80&v=verna", make: "Hyundai", model: "Verna", variant: "1.5 SX IVT", year: 2023, fuel: "PETROL", trans: "CVT", body: "SEDAN", km: 12400, own: 1, colour: "Titan Grey", city: "Mumbai", base: 1050000, featured: true },
-  { img: "https://images.unsplash.com/photo-1542362567-b07e54358753?w=800&h=500&fit=crop&q=80", make: "Toyota", model: "Innova Crysta", variant: "VX 2.4 AT", year: 2021, fuel: "DIESEL", trans: "AUTOMATIC", body: "MUV", km: 52000, own: 1, colour: "Super White", city: "Chennai", base: 1650000, featured: false },
-  { img: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=800&h=500&fit=crop&q=80", make: "BMW", model: "3 Series", variant: "320d M Sport", year: 2020, fuel: "DIESEL", trans: "AUTOMATIC", body: "SEDAN", km: 38000, own: 1, colour: "Alpine White", city: "Mumbai", base: 2850000, featured: true },
-  { img: "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=800&h=500&fit=crop&q=80", make: "Tata", model: "Harrier", variant: "XZA+ Dark", year: 2022, fuel: "DIESEL", trans: "AUTOMATIC", body: "SUV", km: 21000, own: 1, colour: "Dark Edition", city: "Pune", base: 1480000, featured: false },
-  { img: "https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=800&h=500&fit=crop&q=80", make: "Mercedes-Benz", model: "A-Class", variant: "A200d", year: 2021, fuel: "DIESEL", trans: "DCT", body: "SEDAN", km: 29000, own: 1, colour: "Cosmos Black", city: "Bengaluru", base: 2550000, featured: false },
+  { img: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800&h=500&fit=crop&q=80", make: "Hyundai", model: "Verna", variant: "1.5 SX IVT", year: 2023, fuel: "PETROL", trans: "CVT", body: "SEDAN", km: 12400, own: 1, colour: "Titan Grey", city: "Mumbai", base: 1050000, featured: true },
+  { img: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=800&h=500&fit=crop&q=80", make: "Toyota", model: "Innova Crysta", variant: "VX 2.4 AT", year: 2021, fuel: "DIESEL", trans: "AUTOMATIC", body: "MUV", km: 52000, own: 1, colour: "Super White", city: "Chennai", base: 1650000, featured: false },
+  { img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&h=500&fit=crop&q=80", make: "BMW", model: "3 Series", variant: "320d M Sport", year: 2020, fuel: "DIESEL", trans: "AUTOMATIC", body: "SEDAN", km: 38000, own: 1, colour: "Alpine White", city: "Mumbai", base: 2850000, featured: true },
+  { img: "https://images.unsplash.com/photo-1542362567-b07e54358753?w=800&h=500&fit=crop&q=80", make: "Tata", model: "Harrier", variant: "XZA+ Dark", year: 2022, fuel: "DIESEL", trans: "AUTOMATIC", body: "SUV", km: 21000, own: 1, colour: "Dark Edition", city: "Pune", base: 1480000, featured: false },
+  { img: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=800&h=500&fit=crop&q=80", make: "Mercedes-Benz", model: "A-Class", variant: "A200d", year: 2021, fuel: "DIESEL", trans: "DCT", body: "SEDAN", km: 29000, own: 1, colour: "Cosmos Black", city: "Bengaluru", base: 2550000, featured: false },
 
   // --- ENDED auctions (index 15-17) ---
-  { img: "https://images.unsplash.com/photo-1549317661-bd32c8ce0abe?w=800&h=500&fit=crop&q=80", make: "Maruti Suzuki", model: "Ertiga", variant: "ZXi", year: 2021, fuel: "PETROL", trans: "MANUAL", body: "MUV", km: 41500, own: 1, colour: "Pearl White", city: "Chennai", base: 640000, featured: false },
-  { img: "https://images.unsplash.com/photo-1489824904134-891ab64532f1?w=800&h=500&fit=crop&q=80", make: "Renault", model: "Kwid", variant: "Climber AMT", year: 2022, fuel: "PETROL", trans: "AMT", body: "HATCHBACK", km: 14500, own: 2, colour: "Lightning Yellow", city: "Kolkata", base: 385000, featured: false },
-  { img: "https://images.unsplash.com/photo-1617531653332-bd46c24f2068?w=800&h=500&fit=crop&q=80", make: "Hyundai", model: "i20", variant: "Asta 1.0 Turbo DCT", year: 2022, fuel: "PETROL", trans: "DCT", body: "HATCHBACK", km: 19800, own: 1, colour: "Starry Night", city: "Hyderabad", base: 720000, featured: false },
+  { img: "https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?w=800&h=500&fit=crop&q=80", make: "Maruti Suzuki", model: "Ertiga", variant: "ZXi", year: 2021, fuel: "PETROL", trans: "MANUAL", body: "MUV", km: 41500, own: 1, colour: "Pearl White", city: "Chennai", base: 640000, featured: false },
+  { img: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=800&h=500&fit=crop&q=80", make: "Renault", model: "Kwid", variant: "Climber AMT", year: 2022, fuel: "PETROL", trans: "AMT", body: "HATCHBACK", km: 14500, own: 2, colour: "Lightning Yellow", city: "Kolkata", base: 385000, featured: false },
+  { img: "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=800&h=500&fit=crop&q=80", make: "Hyundai", model: "i20", variant: "Asta 1.0 Turbo DCT", year: 2022, fuel: "PETROL", trans: "DCT", body: "HATCHBACK", km: 19800, own: 1, colour: "Starry Night", city: "Hyderabad", base: 720000, featured: false },
 
   // --- SCHEDULED auctions (index 18-19) ---
-  { img: "https://images.unsplash.com/photo-1616455579100-2ceaa4eb2d37?w=800&h=500&fit=crop&q=80", make: "Kia", model: "Sonet", variant: "HTX+ 1.0 iMT", year: 2023, fuel: "PETROL", trans: "IMT", body: "SUV", km: 8200, own: 1, colour: "Aurora Black Pearl", city: "Ahmedabad", base: 870000, featured: false },
-  { img: "https://images.unsplash.com/photo-1619767886558-efdc259cde1a?w=800&h=500&fit=crop&q=80", make: "Mahindra", model: "XUV700", variant: "AX7 L Diesel AT", year: 2023, fuel: "DIESEL", trans: "AUTOMATIC", body: "SUV", km: 11000, own: 1, colour: "Dazzling Silver", city: "Delhi NCR", base: 1850000, featured: false },
+  { img: "https://images.unsplash.com/photo-1617531653332-bd46c24f2068?w=800&h=500&fit=crop&q=80", make: "Kia", model: "Sonet", variant: "HTX+ 1.0 iMT", year: 2023, fuel: "PETROL", trans: "IMT", body: "SUV", km: 8200, own: 1, colour: "Aurora Black Pearl", city: "Ahmedabad", base: 870000, featured: false },
+  { img: "https://images.unsplash.com/photo-1616455579100-2ceaa4eb2d37?w=800&h=500&fit=crop&q=80", make: "Mahindra", model: "XUV700", variant: "AX7 L Diesel AT", year: 2023, fuel: "DIESEL", trans: "AUTOMATIC", body: "SUV", km: 11000, own: 1, colour: "Dazzling Silver", city: "Delhi NCR", base: 1850000, featured: false },
 ];
 
 const BUYERS = [
@@ -183,9 +183,9 @@ async function main() {
       },
     });
 
-    // Create realistic bids (deterministic count based on index)
+    // Create realistic bids
     if (!isScheduled) {
-      const numBids = isEnded ? 6 : (i % 5) + 2;
+      const numBids = isEnded ? 6 : Math.floor(Math.random() * 5 + 2);
       let price = startBid;
       const bidData = [];
 
@@ -232,15 +232,15 @@ async function main() {
   }
 
   // Deposits for all buyers
-  for (const buyer of buyers) {
+  for (const b of buyers) {
     await prisma.transaction.create({
       data: {
-        userId: buyer.id,
+        userId: b.id,
         type: "DEPOSIT",
         amount: 10000,
         status: "SUCCESS",
         gateway: "MANUAL",
-        gatewayRef: `TXN-DEMO-${buyer.id.slice(-4)}`,
+        gatewayRef: `TXN-DEMO-${b.id.slice(-4)}`,
         note: "Refundable bidding token",
         paidAt: new Date(now - 5 * day),
       },

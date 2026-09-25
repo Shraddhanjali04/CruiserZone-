@@ -1,10 +1,17 @@
 {
   "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "bundler",
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "jsx": "preserve",
+    "strict": false,
+    "allowJs": true,
+    "skipLibCheck": true
   },
-  "include": ["**/*.js", "**/*.jsx"],
+  "include": ["**/*.js", "**/*.jsx", "**/*.mjs"],
   "exclude": ["node_modules", ".next"]
 }

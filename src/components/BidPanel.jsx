@@ -105,7 +105,7 @@ export function BidPanel({ auctionId, carSlug, initial, user, hasDeposit }) {
               </div>
             </div>
             <Badge tone={won ? "success" : "neutral"}>
-              {won ? "Hammered — SOLD" : reserveMet ? "Reserve met" : "Reserve not met"}
+              {won ? "Hammered! SOLD" : reserveMet ? "Reserve met" : "Reserve not met"}
             </Badge>
           </div>
           {won ? (<div className="rounded-lg bg-emerald-50 px-4 py-3 text-sm text-emerald-800 ring-1 ring-emerald-200">

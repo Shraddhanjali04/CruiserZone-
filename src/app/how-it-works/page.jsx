@@ -20,7 +20,7 @@ const STEPS = [
         n: "03",
         title: "Explore certified cars",
         desc: "Browse live auctions and filter by brand, budget, fuel, body type or city. Every car carries a 220-point inspection report and verified ownership history.",
-        extra: ["Watch any car to get updates", "Spotless history — no accidents, floods or odometer tampering"],
+        extra: ["Watch any car to get updates", "Spotless history with no accidents, floods or odometer tampering"],
     },
     {
         n: "04",
@@ -59,7 +59,7 @@ export default function HowItWorksPage() {
           How CruiserZone bidding works
         </h1>
         <p className="mt-3 text-lg text-ink-500">
-          A fair, transparent way to buy a certified pre-owned car — with rules
+          A fair, transparent way to buy a certified pre-owned car, with clear rules
           everyone can see.
         </p>
       </div>

@@ -22,7 +22,7 @@ const TRUST = [
     {
         icon: (<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5Z"/></svg>),
         title: "No renegotiation",
-        desc: "The highest genuine bid wins — transparent, zero haggling.",
+        desc: "The highest genuine bid wins. Transparent, zero haggling.",
     },
 ];
 export default async function HomePage() {
@@ -49,7 +49,7 @@ export default async function HomePage() {
             <p className="mt-5 max-w-xl text-lg text-ink-300">
               CruiserZone runs live timed auctions on inspected, verified used
               cars across India. Watch the countdown, place your bid, and drive
-              away at the price you set — never a rupee more.
+              away at the price you set. Never a rupee more.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <Button href="/listings" size="lg">
@@ -113,7 +113,7 @@ export default async function HomePage() {
               Live auctions
             </h2>
             <p className="mt-1 text-ink-500">
-              Timed auctions ending soon — bid before the clock runs out.
+              Timed auctions ending soon. Bid before the clock runs out.
             </p>
           </div>
           <Button href="/listings" variant="outline" size="sm">
@@ -170,7 +170,7 @@ export default async function HomePage() {
             </p>
           </div>
           <Button href="/register" size="lg" className="bg-white text-brand-600 hover:bg-ink-50">
-            Join free — start bidding
+            Join free and start bidding
           </Button>
         </div>
       </section>

@@ -31,7 +31,7 @@ export default function AboutPage() {
             <p className="mt-5 max-w-xl text-lg text-ink-300">
               CruiserZone was built because buying a used car in India shouldn&apos;t
               be a battle of trust. We inspect every car, verify every history,
-              and let the market — not a salesperson — decide the price.
+              and let the market decide the price, not a salesperson.
             </p>
           </div>
           <div className="grid grid-cols-2 gap-4">
